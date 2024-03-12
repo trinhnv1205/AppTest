@@ -28,14 +28,14 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Runs a single command using the runners shell
-    - name: Send greeting Bill
+    - name: Is Bill ?
       run: echo "Hello ${{ inputs.name }}"
       if: ${{ inputs.name == 'bill' }}
       
-    - name: Send greeting Tim
+    - name: Is Tim
       run: echo "Hello ${{ inputs.name }}"
       if: ${{ inputs.name == 'tim' }}
 
-    - name: Send greeting Cook
+    - name: Is Cook
       run: echo "Hello ${{ inputs.name }}"
       if: ${{ inputs.name == 'Cook' }}
