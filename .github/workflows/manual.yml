@@ -8,11 +8,14 @@ on:
     inputs:
       param1:
         description: 'First parameter'
-        required: true
+        type: boolean
+        required: true 
       param2:
+        type: boolean
         description: 'Second parameter'
-        required: true
+        required: true 
       param3:
+        type: boolean
         description: 'third parameter'
         required: true 
         
@@ -40,10 +43,10 @@ jobs:
           fi
           echo "PARAMS=${PARAMS%?}" >> $GITHUB_ENV      
           
-    - name: current folder
+    - name: Working Folder
       run: echo "TDA Dir" && pwd
 
-    - name: Run script to show from user inputed params
+    - name: Run script to show user inputed params
       run: chmod +rx ./RunScripts/script.sh && ./RunScripts/script.sh 
       
     - name: Checkout Source
