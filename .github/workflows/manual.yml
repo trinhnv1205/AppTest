@@ -15,23 +15,8 @@ on:
         required: true
       param3:
         description: 'third parameter'
-        required: true
-      
-      welcome_name:
-        description: 'User to welcome'
-        options:
-          - monalisa
-          - billgate
-      message:
-        required: true
-      use-emoji:
-        type: boolean
-        description: 'Include emojis' 
-      
-      param_boolean:
-        description: 'Param as bool'
-        required: true
-        default: true  
+        required: true 
+        
 env:  
     DOTNET_INSTALL_DIR: "./.dotnet"
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -42,6 +27,20 @@ jobs:
     - name: Set up parameters
       run: echo "PARAMS=${{ github.event.inputs.param1 }},${{ github.event.inputs.param2 }},${{ github.event.inputs.param3 }}" >> $GITHUB_ENV
 
+    - name: Set up parameters
+      run: |
+          INPARAMS=""
+          if [ "${{ github.event.inputs.param1 }}" = "true" ]; then
+            INPARAMS+="param1,"
+          fi
+          if [ "${{ github.event.inputs.param2 }}" = "true" ]; then
+            INPARAMS+="param2,"
+          fi
+          if [ "${{ github.event.inputs.param3 }}" = "true" ]; then
+            INPARAMS+="param3,"
+          fi
+          echo "TDA-- INPARAMS=${INPARAMS%?}" >> $GITHUB_ENV      
+          
     - name: current folder
       run: echo "TDA Dir" && pwd
 
