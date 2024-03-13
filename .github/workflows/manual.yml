@@ -21,7 +21,7 @@ jobs:
     runs-on: self-hosted
     steps:
     - name: Set up parameters
-      run: echo "INPUT_PARAMS=${{ github.event.inputs.param1 }},${{ github.event.inputs.param2 }}" >> $GITHUB_ENV
+      run: echo "PARAMS=${{ github.event.inputs.param1 }},${{ github.event.inputs.param2 }}" >> $GITHUB_ENV
       
     - name: Run script to show from user inputed params
       run: chmod +rx ./RunScripts/script.sh && ./RunScripts/script.sh 
