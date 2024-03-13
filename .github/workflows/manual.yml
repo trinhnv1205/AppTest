@@ -15,7 +15,23 @@ on:
         required: true
       param3:
         description: 'third parameter'
-        required: true        
+        required: true
+      
+      welcome_name:
+        description: 'User to welcome'
+        options:
+          - monalisa
+          - billgate
+      message:
+        required: true
+      use-emoji:
+        type: boolean
+        description: 'Include emojis' 
+      
+      param_boolean:
+        description: 'Param as bool'
+        required: true
+        default: true  
 env:  
     DOTNET_INSTALL_DIR: "./.dotnet"
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
