@@ -23,4 +23,4 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Set up parameters
-        run: echo "PARAMS=${{ github.event.inputs.param1 }},${{ github.event.inputs.param2 }}" >> $GITHUB_ENV
+        run: echo "INPUT_PARAMS=${{ github.event.inputs.param1 }},${{ github.event.inputs.param2 }}" >> $GITHUB_ENV

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-IFS=',' read -ra PARAM_ARRAY <<< "$PARAMS"
+IFS=',' read -ra PARAM_ARRAY <<< "$INPUT_PARAMS"
 
-for i in "${PARAM_ARRAY[@]}"; do
-   echo "Parameter: $i"
+for iService in "${PARAM_ARRAY[@]}"; do
+   echo "Parameter: $iService"
 done
