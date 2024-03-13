@@ -13,6 +13,9 @@ on:
       param2:
         description: 'Second parameter'
         required: true
+      param3:
+        description: 'third parameter'
+        required: true        
 env:  
     DOTNET_INSTALL_DIR: "./.dotnet"
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
