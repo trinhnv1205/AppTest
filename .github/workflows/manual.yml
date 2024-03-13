@@ -1,5 +1,4 @@
 # This is a basic workflow that is manually triggered
-
 name: Manual workflow
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
@@ -24,22 +23,22 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
-    - name: Set up parameters
-      run: echo "PARAMS=${{ github.event.inputs.param1 }},${{ github.event.inputs.param2 }},${{ github.event.inputs.param3 }}" >> $GITHUB_ENV
+    #- name: Set up parameters
+    #  run: echo "PARAMS=${{ github.event.inputs.param1 }},${{ github.event.inputs.param2 }},${{ github.event.inputs.param3 }}" >> $GITHUB_ENV
 
-    - name: Set up parameters
+    - name: Set up parameters to list
       run: |
-          INPARAMS=""
+          PARAMS=""
           if [ "${{ github.event.inputs.param1 }}" = "true" ]; then
-            INPARAMS+="param1,"
+              PARAMS+="param1x,"
           fi
           if [ "${{ github.event.inputs.param2 }}" = "true" ]; then
-            INPARAMS+="param2,"
+              PARAMS+="param2x,"
           fi
           if [ "${{ github.event.inputs.param3 }}" = "true" ]; then
-            INPARAMS+="param3,"
+              PARAMS+="param3x,"
           fi
-          echo "TDA-- INPARAMS=${INPARAMS%?}" >> $GITHUB_ENV      
+          echo "PARAMS=${PARAMS%?}" >> $GITHUB_ENV      
           
     - name: current folder
       run: echo "TDA Dir" && pwd
@@ -54,5 +53,4 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x 
-
-
+        
