@@ -13,14 +13,25 @@ on:
       param2:
         description: 'Second parameter'
         required: true
-
+env:  
+    DOTNET_INSTALL_DIR: "./.dotnet"
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
     runs-on: self-hosted
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Set up parameters
+      run: echo "INPUT_PARAMS=${{ github.event.inputs.param1 }},${{ github.event.inputs.param2 }}" >> $GITHUB_ENV
+      
+    - name: Run script to show from user inputed params
+      run: chmod +rx ./RunScripts/script.sh && ./RunScripts/script.sh 
+      
+    - name: Checkout Source
+      uses: actions/checkout@v3    
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x 
 
-      - name: Set up parameters
-        run: echo "INPUT_PARAMS=${{ github.event.inputs.param1 }},${{ github.event.inputs.param2 }}" >> $GITHUB_ENV
+
