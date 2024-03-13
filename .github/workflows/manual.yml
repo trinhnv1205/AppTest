@@ -22,7 +22,10 @@ jobs:
     steps:
     - name: Set up parameters
       run: echo "PARAMS=${{ github.event.inputs.param1 }},${{ github.event.inputs.param2 }}" >> $GITHUB_ENV
-      
+
+    - name: current folder
+      run: echo "TDA Dir" && pwd
+
     - name: Run script to show from user inputed params
       run: chmod +rx ./RunScripts/script.sh && ./RunScripts/script.sh 
       
