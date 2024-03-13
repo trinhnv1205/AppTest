@@ -48,12 +48,4 @@ jobs:
 
     - name: Run script to show user inputed params
       run: chmod +rx ./RunScripts/script.sh && ./RunScripts/script.sh 
-      
-    - name: Checkout Source
-      uses: actions/checkout@v3    
-    
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 6.0.x 
         
