@@ -9,15 +9,18 @@ on:
       param1:
         description: 'First parameter'
         type: boolean
-        required: true 
+        required: true
+        default: 'true'
       param2:
         type: boolean
         description: 'Second parameter'
         required: true 
+        default: 'true'
       param3:
         type: boolean
         description: 'third parameter'
-        required: true 
+        required: true
+        default: 'true'
         
 env:  
     DOTNET_INSTALL_DIR: "./.dotnet"
